@@ -8,18 +8,41 @@ tokenizer = MobileBertTokenizer.from_pretrained('google/mobilebert-uncased')
 model = MobileBertModel.from_pretrained('google/mobilebert-uncased')
 
 def algorithm(text):
-    # producing sentence embeddings
     sentences = re.findall(r"[^\.]+\.", text.replace("\n", ""))
-    text_tokens = [tokenizer(l, return_tensors="pt") for l in sentences]
-    model_outputs = [model(**i) for i in text_tokens]
-    last_hidden_states = [o[0] for o in model_outputs]
-    sentence_embeddings = torch.stack([t.squeeze().mean(axis = 0) for t in last_hidden_states]).detach().numpy()
+    # producing sentence embeddings
+
+    ## approach 1
+    #text_tokens = [tokenizer(l, return_tensors="pt") for l in sentences]
+    #model_outputs = [model(**i) for i in text_tokens]
+    #last_hidden_states = [o[0] for o in model_outputs]
+    #sentence_embeddings = torch.stack([t.squeeze().mean(axis = 0) for t in last_hidden_states]).detach().numpy()
+
+    ## aproach 2
+    sentence_embeddings_list = []
+    for s in sentences:
+        sentence_embeddings_list.append(model(**tokenizer(s, return_tensors="pt"))[0].detach().numpy().squeeze().mean(axis = 0))
+    sentence_embeddings = np.array(sentence_embeddings_list)
+
+
     
-    # 
+    # computing distances
+
+    ## approach 1
     distances = np.linalg.norm(np.expand_dims(sentence_embeddings, 1) - np.expand_dims(sentence_embeddings, 0), axis = 2)
     normalized_distances = distances / distances.max()
     centralities = pd.Series(normalized_distances.sum(0)).sort_values()
     
+    ## approach 2
+    #centralities_list = []
+    #for e in sentence_embeddings:
+    #    distances = np.linalg.norm(sentence_embeddings - e, axis = -1).sum()
+    #    centralities_list.append(distances)
+    #centralities = pd.Series(centralities_list).sort_values()
+
+    ## approach 3
+
+    
+
     return sentences, centralities
 
 if __name__ == "__main__":
