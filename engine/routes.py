@@ -31,5 +31,5 @@ def summarization_response():
     #b = sentences
     #print(sentences)
     #b = main()
-    b = [sentences[i] for i in centralities.head().index.to_list()]
+    b = [{"rank":i, "sentence":sentences[j]} for i, j in enumerate(centralities.head().index.to_list(), 1)]
     return render_template("response.html", form = f, body = b)

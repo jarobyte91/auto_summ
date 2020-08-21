@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Summary</h1>
+    <h2>Here are the most relevant sentences of your text</h2>
     <p>
     {% for line in body %}
-        {{ line }}<br>
+        <b>{{ line.rank }}.   </b>{{ line.sentence }}<br>
     {% endfor %}
     </p>
 <!--
