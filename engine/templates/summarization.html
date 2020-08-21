@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Automatic Summarization</h1>
+<form action="{{ url_for('summarization_response') }}" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.input_text.label }}<br>
+            {{ form.input_text(cols = 180, rows = 25) }}<br>
+       </p>
+       <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

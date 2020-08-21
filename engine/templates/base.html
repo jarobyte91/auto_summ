@@ -1,0 +1,26 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - auto_summ</title>
+        {% else %}
+        <title>Welcome to auto_summ</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            auto_summ: 
+            <a href="{{ url_for('summarization') }}">Input page</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <u1>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </u1>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

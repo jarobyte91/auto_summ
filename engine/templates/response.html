@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Summary</h1>
+    <p>
+    {% for line in body %}
+        {{ line }}<br>
+    {% endfor %}
+    </p>
+<!--
+<form action="" method="post">
+        {{ form.hidden_tag() }}
+        {{ form.satisfaction.label }}<br>
+        {{ form.satisfaction() }}<br
+        {% for error in form.satisfaction.errors %}
+            <span style="color: red;">[Please select an option]</span><br>
+        {% endfor %}
+       <p>{{ form.submit() }}</p>
+    </form>
+-->
+{% endblock %}
