@@ -26,7 +26,7 @@ sacremoses==0.0.43
 sentencepiece==0.1.91
 six==1.15.0
 tokenizers==0.8.1rc1
-https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp38-cp38-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp37-cp37m-linux_x86_64.whl
 tqdm==4.48.2
 transformers==3.0.2
 urllib3==1.25.10
