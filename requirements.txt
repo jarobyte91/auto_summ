@@ -1,4 +1,4 @@
-torch==1.6.0
+https://download.pytorch.org/whl/cpu/torch-1.0.1.post2-cp37-cp37m-linux_x86_64.whl
 Flask_WTF==0.14.3
 WTForms==2.3.3
 Flask==1.1.2
