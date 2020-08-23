@@ -1,21 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Summary</h1>
-    <h2>Here are the most relevant sentences of your text</h2>
+    <h1>Your Extractive Summary</h1>
+    <h2>Here are the most important sentences of your text</h2>
     <p>
     {% for line in body %}
         <b>{{ line.rank }}.   </b>{{ line.sentence }}<br>
     {% endfor %}
     </p>
-<!--
-<form action="" method="post">
-        {{ form.hidden_tag() }}
-        {{ form.satisfaction.label }}<br>
-        {{ form.satisfaction() }}<br
-        {% for error in form.satisfaction.errors %}
-            <span style="color: red;">[Please select an option]</span><br>
-        {% endfor %}
-       <p>{{ form.submit() }}</p>
-    </form>
--->
+    <hr>
+    <div>
+        Help improve this system!
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            {{ form.satisfaction.label }}<br>
+            {{ form.satisfaction() }}<br
+            {% for error in form.satisfaction.errors %}
+            <span style="color: red;">[If you want to contribute, please select an option]</span><br>
+            {% endfor %}
+            <p>{{ form.submit() }}</p>
+        </form>
+    </div>
 {% endblock %}
