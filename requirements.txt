@@ -17,6 +17,7 @@ numpy==1.19.1
 packaging==20.4
 pandas==1.1.1
 pipreqs==0.4.10
+psycopg2==2.8.5
 pyparsing==2.4.7
 python-dateutil==2.8.1
 python-dotenv==0.14.0
