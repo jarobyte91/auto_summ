@@ -32,3 +32,6 @@ def summarization_response():
         redirect(url_for("summarization"))
     return render_template("response.html", form = f, body = b)
 
+@app.route("/about_me")
+def about_me():
+    return render_template("about_me.html")
