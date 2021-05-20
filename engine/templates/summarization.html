@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Automatic Extractive Summarization</h1>
-    <p>In this page, you can input some text that you want to summarize. By using some Natural Language Processing techniques, it will give you back a 5-sentence extractive summary containing the most important sentences of your text!</p>
+    <p>In this page, you can input some text that you want to summarize. By using some Natural Language Processing techniques, it will rank the sentences of your text according to their centrality.</p>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <b>{{ form.input_text.label }}</b><br>

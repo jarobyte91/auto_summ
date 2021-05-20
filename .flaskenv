@@ -1,2 +1,2 @@
 FLASK_APP=auto_summ.py
-FLASK_DEBUG=
+FLASK_DEBUG=1

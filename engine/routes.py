@@ -21,11 +21,20 @@ def summarization():
 @app.route("/summarization_response", methods = ["GET", "POST"]) 
 def summarization_response():
     text = Query.query.order_by(Query.id.desc()).first().text
-    sentences, centralities = algorithm(text)
-    b = [{"rank":i, "sentence":sentences[j]} for i, j in enumerate(centralities.head().index.to_list(), 1)]
+    centralities = algorithm(text)
+    # b = [{"rank":i, "sentence":sentences[j], "centrality":centralities[j]} 
+    #      for i, j in enumerate(centralities.head().index.to_list(), 1)]
+    b = centralities\
+        .sort_values("centrality", ascending = False)\
+        .assign(rank = lambda df: (df.index + 1).map(lambda x: f"{x:0>3}"),
+                centrality = lambda df: df["centrality"].map(lambda x: f"{x:>.2f}"))\
+        .to_dict("records")
     f = ResponseForm()
     if f.validate_on_submit():
-        r = Response(id = Response.query.count(), text = text, summary = "".join([s["sentence"].replace("'", "''") for s in b]), relevance = f.satisfaction.data)
+        r = Response(id = Response.query.count(), text = text, 
+                     summary = "".join([s["sentence"].replace("'", "''") 
+                                        for s in b]), 
+                     relevance = f.satisfaction.data)
         db.session.add(r)
         db.session.commit()
         flash("Thanks for your submission!")
