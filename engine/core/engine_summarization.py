@@ -12,7 +12,7 @@ from sklearn.preprocessing import Normalizer
 def algorithm(text):
     # sentences = re.findall(r"[^\.]+\.", text.replace("\n", ""))
     # sentences = re.split(r"(?<=\\.)\\s[\\d\\s\\.]*(?=[A-Z])", text)
-    sentences = re.sub(r"\s{2,}|\n", " ", sentences)
+    text = re.sub(r"\s{2,}|\n", " ", text)
     sentences = re.split(r"(?<=\.)\s*(?=[A-Z])", text)
     # print("sentences", len(sentences))
     model = CountVectorizer()
