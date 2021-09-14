@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Unsupervised document summarization using pre-trained sentence embeddings and graph centrality</h1>
+    <p>This is the demo of the <a href="https://aclanthology.org/2021.sdp-1.14/">paper</a> published in the Second Workshop on Scholarly Document Processing (SDP 2021) inside NAACL-HLT 2021.</p>
+    <p style="font-style:italic; margin-left:10%; margin-right:10%; text-align:justify"><strong>Abstract:</strong>
+This paper describes our submission for the LongSumm task in SDP 2021. We propose a method for incorporating sentence embeddings produced by deep language models into extractive summarization techniques based on graph centrality in an unsupervised manner.The proposed method is simple, fast, can summarize any kind of document of any size and can satisfy any length constraints for the summaries produced. The method offers competitive performance to more sophisticated supervised methods and can serve as a proxy for abstractive summarization techniques.</p>
+    <p>In this website, you can input some text that you want to summarize. After identifying the sentences in the text, the system will compute the similarities between them and rank them according to their centrality (importance).</p>
+    <p>In this way, you can obtain the gist of your text: the top-most sentence is the most important idea of the text, while the bottom-most is the least important one. You can create an extractive summary for your text of any length by joining the re-ranked sentences in order until you hit the length you want.</p>
+    <a href="{{ url_for('summarization') }}" style="font-weight: bold; font-size:20px">Start!</a>
+{% endblock %}

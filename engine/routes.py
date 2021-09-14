@@ -6,7 +6,7 @@ from engine.models import Query, Response
 
 @app.route("/")
 def index():
-    return redirect(url_for("summarization"))
+    return render_template("index.html")
 
 @app.route("/summarization", methods = ["GET", "POST"])
 def summarization():

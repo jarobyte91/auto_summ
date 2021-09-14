@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Automatic Extractive Summarization</h1>
-    <p>In this page, you can input some text that you want to summarize. By using some Natural Language Processing techniques, it will rank the sentences of your text according to their centrality.</p>
+    <p>Paste the text you want to summarize below. The system will parse its sentences and rank them.</p>
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <b>{{ form.input_text.label }}</b><br>
-        {{ form.input_text(cols = 180, rows = 20) }}<br>
+        {{ form.input_text(cols = 80, rows = 20) }}<br>
         {% for error in form.input_text.errors %}
             <span style="color: red;">[Please select an option]</span><br>
         {% endfor %}
-        {{ form.submit() }}
+        {{ form.submit(style="font-size:20px") }}
     </form>
 {% endblock %}
