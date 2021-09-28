@@ -3,7 +3,7 @@
 import re
 import pandas as pd
 # import numpy as np
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.preprocessing import Normalizer
 
 # tokenizer = MobileBertTokenizer.from_pretrained('google/mobilebert-uncased')
@@ -20,7 +20,8 @@ def algorithm(text):
     #sentences = re.split(r"(?<=\.)\s*(?=[A-Z])", text)
     sentences = re.split(r"(?<=\.)\s+", text)
     # print("sentences", len(sentences))
-    model = CountVectorizer()
+    model = TfidfVectorizer()
+#     model = CountVectorizer()
     sentence_embeddings = model.fit_transform(sentences).toarray()
     # print("sentence_embeddings", sentence_embeddings.shape)
     norm = Normalizer()
