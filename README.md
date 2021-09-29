@@ -1,3 +1,3 @@
 # auto_summ
 
-This is the repository for the website on automatic summarization.
+This is the repository for the website [auto_summ](https://auto-summ.herokuapp.com/).
