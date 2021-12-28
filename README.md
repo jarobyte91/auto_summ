@@ -14,9 +14,9 @@ This project is based on the [Flask](https://flask.palletsprojects.com/en/2.0.x/
 
 Assuming you have your whole document in a single string, using
 
-    from auto_summ.engine import core
+    from auto_summ.engine.core import algorithm
     
-    centralities = core.algorithm(text)
+    centralities = algorithm(text)
     
 will parse it into sentences, compute the centrality of each one of them according to the algorithm described in the paper and give you back a Pandas dataframe with the following columns:
 
