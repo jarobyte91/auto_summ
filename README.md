@@ -14,7 +14,7 @@ This project is based on the [Flask](https://flask.palletsprojects.com/en/2.0.x/
 
 Assuming you have your whole document in a single string, using
 
-    from auto_summ.engine.core import algorithm
+    from auto_summ.engine.core.engine_summarization import algorithm
     
     centralities = algorithm(text)
     
