@@ -1,6 +1,6 @@
 # Unsupervised Document Summarization using pre-Trained Sentence Embeddings and Graph Centrality
 
-This repository implements an [online demo](https://auto-summ.herokuapp.com/) of the paper [*Unsupervised Document Summarization using pre-Trained Sentence Embeddings and Graph Centrality*](https://aclanthology.org/2021.sdp-1.14/) published in the Second Scholarly Document Processing Workshop (SDP 2021) at NAACL-HLT 2021.
+This repository implements an [online demo](https://auto-summ.herokuapp.com/) of the paper [*Unsupervised Document Summarization using pre-Trained Sentence Embeddings and Graph Centrality*](https://aclanthology.org/2021.sdp-1.14/) published in the Second Scholarly Document Processing Workshop (SDProc 2021) at NAACL-HLT 2021.
 
 ## Usage
 
