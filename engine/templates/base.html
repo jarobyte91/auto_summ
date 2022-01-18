@@ -3,6 +3,7 @@
 <meta charset="UTF-8">
 <title>Unsupervised document summarization</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <head>
         {% if title %}
         <title>{{ title }} - auto_summ</title>
@@ -10,7 +11,7 @@
         <title>Welcome to auto_summ</title>
         {% endif %}
     </head>
-    <body style="font-family: Helvetica;">
+	<body class="w3-auto w3-container">
         <div>
             <a href="{{ url_for('index') }}">Home</a> |
             <a href="{{ url_for('summarization') }}">Summarization</a> |
