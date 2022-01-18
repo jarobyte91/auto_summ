@@ -6,7 +6,7 @@ from engine.models import Query, Response
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", title = "Home")
 
 @app.route("/summarization", methods = ["GET", "POST"])
 def summarization():
@@ -16,7 +16,7 @@ def summarization():
         db.session.add(q)
         db.session.commit()
         return redirect(url_for("summarization_response"))
-    return render_template("summarization.html", form = f)
+    return render_template("summarization.html", form = f, title = "Summarization")
 
 @app.route("/summarization_response", methods = ["GET", "POST"]) 
 def summarization_response():
@@ -39,7 +39,7 @@ def summarization_response():
         db.session.commit()
         flash("Thanks for your submission!")
         redirect(url_for("summarization"))
-    return render_template("response.html", form = f, body = b)
+    return render_template("response.html", form = f, body = b, title = "Your Summary")
 
 @app.route("/about_me")
 def about_me():
