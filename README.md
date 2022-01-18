@@ -1,6 +1,6 @@
 # Unsupervised Document Summarization using pre-Trained Sentence Embeddings and Graph Centrality
 
-This repository implements an [online demo](https://auto-summ.herokuapp.com/) of the paper [*Unsupervised Document Summarization using pre-Trained Sentence Embeddings and Graph Centrality*](https://aclanthology.org/2021.sdp-1.14/) published in the Second Scholarly Document Processing Workshop (SDP 2021) at NAACL-HLT 2021.
+This repository implements an [online demo](https://auto-summ.herokuapp.com/) of the paper [*Unsupervised Document Summarization using pre-Trained Sentence Embeddings and Graph Centrality*](https://aclanthology.org/2021.sdp-1.14/) published in the Second Scholarly Document Processing Workshop (SDProc 2021) at NAACL-HLT 2021.
 
 ## Usage
 
@@ -14,7 +14,7 @@ This project is based on the [Flask](https://flask.palletsprojects.com/en/2.0.x/
 
 Assuming you have your whole document in a single string, using
 
-    from auto_summ.engine.core import algorithm
+    from auto_summ.engine.core.engine_summarization import algorithm
     
     centralities = algorithm(text)
     
